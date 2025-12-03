@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.community.project.system.company.mapper.CompanyMapper">
+    
+    <resultMap type="Company" id="CompanyResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="userName"    column="user_name"    />
+        <result property="userId"    column="user_id"    />
+        <result property="address"    column="address"    />
+        <result property="salary"    column="salary"    />
+        <result property="job"    column="job"    />
+        <result property="peopleNums"    column="people_nums"    />
+        <result property="phone"    column="phone"    />
+        <result property="avatar"    column="avatar"    />
+        <result property="note"    column="note"    />
+        <result property="companyType"    column="company_type"    />
+
+    </resultMap>
+
+    <sql id="selectCompanyVo">
+        select id, name,company_type, user_name, user_id, address, salary, job, people_nums, phone, avatar, note from sys_company
+    </sql>
+
+    <select id="selectCompanyList" parameterType="Company" resultMap="CompanyResult">
+        <include refid="selectCompanyVo"/>
+        <where>  
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="address != null  and address != ''"> and address = #{address}</if>
+            <if test="salary != null  and salary != ''"> and salary = #{salary}</if>
+            <if test="job != null  and job != ''"> and job = #{job}</if>
+            <if test="userName != null "> and user_name = #{userName}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="peopleNums != null "> and people_nums = #{peopleNums}</if>
+            <if test="phone != null  and phone != ''"> and phone = #{phone}</if>
+            <if test="avatar != null  and avatar != ''"> and avatar = #{avatar}</if>
+            <if test="note != null  and note != ''"> and note = #{note}</if>
+            <if test="companyType != null  and companyType != ''"> and company_type = #{companyType}</if>
+        </where>
+    </select>
+    
+    <select id="selectCompanyById" parameterType="Long" resultMap="CompanyResult">
+        <include refid="selectCompanyVo"/>
+        where id = #{id}
+    </select>
+
+
+    <select id="selectCompanyWithPage" parameterType="Company" resultMap="CompanyResult">
+        <include refid="selectCompanyVo"/>
+        <where>
+            <if test="job != null  and job != ''"> and job = #{job}</if>
+        </where>
+        --         ORDER BY musicid DESC
+    </select>
+    <select id="selectDataScaleType" resultType="com.community.project.system.reportStatic.vo.DataScaleType">
+        SELECT company_type as type, COUNT(*) as total
+        FROM sys_company
+        GROUP BY company_type;
+    </select>
+
+    <insert id="insertCompany" parameterType="Company">
+        insert into sys_company
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="name != null">name,</if>
+            <if test="userName != null">user_name,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="address != null">address,</if>
+            <if test="salary != null">salary,</if>
+            <if test="job != null">job,</if>
+            <if test="peopleNums != null">people_nums,</if>
+            <if test="phone != null">phone,</if>
+            <if test="avatar != null">avatar,</if>
+            <if test="note != null">note,</if>
+            <if test="companyType != null">company_type,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="name != null">#{name},</if>
+            <if test="userName != null">#{userName},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="address != null">#{address},</if>
+            <if test="salary != null">#{salary},</if>
+            <if test="job != null">#{job},</if>
+            <if test="peopleNums != null">#{peopleNums},</if>
+            <if test="phone != null">#{phone},</if>
+            <if test="avatar != null">#{avatar},</if>
+            <if test="note != null">#{note},</if>
+            <if test="companyType != null">#{companyType},</if>
+         </trim>
+    </insert>
+
+    <update id="updateCompany" parameterType="Company">
+        update sys_company
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="address != null">address = #{address},</if>
+            <if test="salary != null">salary = #{salary},</if>
+            <if test="job != null">job = #{job},</if>
+            <if test="peopleNums != null">people_nums = #{peopleNums},</if>
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="avatar != null">avatar = #{avatar},</if>
+            <if test="note != null">note = #{note},</if>
+            <if test="companyType != null">company_type = #{companyType},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteCompanyById" parameterType="Long">
+        delete from sys_company where id = #{id}
+    </delete>
+
+    <delete id="deleteCompanyByIds" parameterType="String">
+        delete from sys_company where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+</mapper>

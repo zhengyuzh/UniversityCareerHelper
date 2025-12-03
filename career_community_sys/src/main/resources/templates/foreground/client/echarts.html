@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+	<th:block th:include="include :: header('百度ECharts')" />
+</head>
+<body class="gray-bg">
+	<div class="row  border-bottom white-bg dashboard-header">
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>企业用户发布招聘岗位类型</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#">选项1</a>
+                                </li>
+                                <li><a href="#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div style="height: 400px;" class="echarts" id="echarts-pie-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>求职用户发布求职类型</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#">选项1</a>
+                                </li>
+                                <li><a href="#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div style="height: 400px;" class="echarts" id="echarts-pie-chartTwo"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <th:block th:include="include :: footer" />
+    <th:block th:include="include :: echarts-js" />
+    <script type="text/javascript">
+
+        var prefix = ctx + "system/eport";
+
+
+        //饼图
+        $(document).ready(function () {
+            var pieChart = echarts.init(document.getElementById("echarts-pie-chart"));
+            //数据加载完之前先显示一段简单的loading动画
+            pieChart.showLoading();
+            //指定图表的配置项和数据
+            var names = []; //类别数组（实际放x轴坐标值）
+            var nums = []; //销量数组（Y坐标值）
+            $.ajax({
+                type: "get",
+                async: "true",//异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+                url: prefix + "/list",
+                data: {},
+                dataType: "json",
+                success: function (result) {
+                    console.log("result:",result)
+                    debugger
+                    if (result) {
+                        for (var i = 0; i < result.length; i++) {
+                            names.push(result[i].type);
+                            var obj = new Object();
+                            obj.name = result[i].type;
+                            obj.value = result[i].total;
+                            nums.push(obj);
+                        }
+                        pieChart.hideLoading();//隐藏加载动画
+                        pieChart.setOption({//加载数据图表
+                            title: {
+                                text: '分类统计',
+                                x: 'center'
+                            },
+                            //工具箱
+                            //保存图片
+                            toolbox: {
+                                show: true,
+                                feature: {
+                                    saveAsImage: {
+                                        show: true
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: "{a} <br/>{b} : {c} ({d}%)"
+                            },
+                            legend: {
+                                orient: 'vertical',
+                                x: 'left',
+                                data: names
+                            },
+                            calculable: true,
+                            series: [{
+                                name: '销量',
+                                type: 'pie',
+                                radius: '55%',
+                                center: ['50%', '60%'],
+                                data: nums,
+                                itemStyle: {
+                                    emphasis: {
+                                        shadowBlur: 10,
+                                        shadowOffsextX: 0,
+                                        shadowColor: 'rgba(0,0,0,0.5)'
+                                    }
+                                }
+                            }]
+
+                        })
+
+                    }
+                }
+            })
+
+        })
+
+
+        //饼图2
+        $(document).ready(function () {
+            sendRequest();
+        })
+
+        function sendRequest() {
+            var pieChart = echarts.init(document.getElementById("echarts-pie-chartTwo"));
+            //数据加载完之前先显示一段简单的loading动画
+            pieChart.showLoading();
+            //指定图表的配置项和数据
+            var names = []; //类别数组（实际放x轴坐标值）
+            var nums = []; //销量数组（Y坐标值）
+
+
+            $.ajax({
+                type: "POST",
+                async: "true",//异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+                url: prefix + "/listByClass",
+                data: {
+                    classType: "", // 将选择的值作为参数发送
+                },
+                dataType: "json",
+                success: function (result) {
+                    console.log("result:",result)
+                    if (result) {
+                        for (var i = 0; i < result.length; i++) {
+                            names.push(result[i].type);
+                            var obj = new Object();
+                            obj.name = result[i].type;
+                            obj.value = result[i].total;
+                            nums.push(obj);
+                        }
+                        pieChart.hideLoading();//隐藏加载动画
+                        pieChart.setOption({//加载数据图表
+                            title: {
+                                text: '班级测试分类统计',
+                                x: 'center'
+                            },
+                            //工具箱
+                            //保存图片
+                            toolbox: {
+                                show: true,
+                                feature: {
+                                    saveAsImage: {
+                                        show: true
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                trigger: 'item',
+                                formatter: "{a} <br/>{b} : {c} ({d}%)"
+                            },
+                            legend: {
+                                orient: 'vertical',
+                                x: 'left',
+                                data: names
+                            },
+                            calculable: true,
+                            series: [{
+                                name: '销量',
+                                type: 'pie',
+                                radius: '55%',
+                                center: ['50%', '60%'],
+                                data: nums,
+                                itemStyle: {
+                                    emphasis: {
+                                        shadowBlur: 10,
+                                        shadowOffsextX: 0,
+                                        shadowColor: 'rgba(0,0,0,0.5)'
+                                    }
+                                }
+                            }]
+
+                        })
+
+                    }
+                }
+            })
+        }
+
+
+
+    </script>
+</body>
+</html>

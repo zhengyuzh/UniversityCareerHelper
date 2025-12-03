@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7b2e967b-1068-46f3-bffd-f9e4b2109d26" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/ruoyi.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/system/user_report/user_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/system/user_report/user_report.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="E:/work/maven/apache-maven-3.3.9" />
+        <option name="userSettingsFile" value="E:\work\maven\apache-maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2adByiPO8D5bmdPbDvqRV3Pr0qG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\workspace\完整项目案例\2024~2025毕业生\12、心理健康功能改造\系统源码\CCS\career_community_sys\src\main\resources\templates\foreground\client" />
+      <recent name="F:\workspace\完整项目案例\2、职业生涯社区的设计与实现（待交付）（微信--动作太慢）1200\代码\career-community\career_community_sys\src\main\resources\static\foreground\user\img" />
+      <recent name="F:\workspace\完整项目案例\2、职业生涯社区的设计与实现（待交付）（微信--动作太慢）1200\代码\career-community\career_community_sys\src\main\resources\templates\foreground\client" />
+      <recent name="F:\workspace\完整项目案例\2、职业生涯社区的设计与实现（待交付）（微信--动作太慢）1200\代码\career-community\career_community_sys\src\main\resources\templates\system" />
+      <recent name="F:\workspace\完整项目案例\2、职业生涯社区的设计与实现（待交付）（微信--动作太慢）1200\代码\career-community\career_community_sys\src\main\resources\mybatis\system" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.community.project.system.reportStatic" />
+      <recent name="com.community.project.system.notice.controller" />
+      <recent name="com.mentalhealth.project.system.company.controller" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application (1)">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ruoyi" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.community.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ruoyi" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.mentalhealth.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7b2e967b-1068-46f3-bffd-f9e4b2109d26" name="Default Changelist" comment="" />
+      <created>1704638832035</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704638832035</updated>
+      <workItem from="1704638833895" duration="1690000" />
+      <workItem from="1704645512468" duration="1022000" />
+      <workItem from="1704677164245" duration="94000" />
+      <workItem from="1704684080816" duration="13120000" />
+      <workItem from="1704720537686" duration="14370000" />
+      <workItem from="1704772859970" duration="15782000" />
+      <workItem from="1704810455074" duration="4454000" />
+      <workItem from="1704816476756" duration="1584000" />
+      <workItem from="1704851315947" duration="264000" />
+      <workItem from="1704955139721" duration="594000" />
+      <workItem from="1704957198523" duration="3334000" />
+      <workItem from="1705075280447" duration="3631000" />
+      <workItem from="1705118981572" duration="705000" />
+      <workItem from="1705212951261" duration="279000" />
+      <workItem from="1705213270506" duration="4928000" />
+      <workItem from="1705220833626" duration="1619000" />
+      <workItem from="1705225954323" duration="44000" />
+      <workItem from="1705396648043" duration="668000" />
+      <workItem from="1705572878583" duration="2342000" />
+      <workItem from="1705585962555" duration="29000" />
+      <workItem from="1709124847757" duration="3378000" />
+      <workItem from="1710085220982" duration="912000" />
+      <workItem from="1715333954940" duration="5960000" />
+      <workItem from="1715352020788" duration="14000" />
+      <workItem from="1715393091220" duration="615000" />
+      <workItem from="1715741968852" duration="10272000" />
+      <workItem from="1715778468710" duration="8559000" />
+      <workItem from="1715821764743" duration="41000" />
+      <workItem from="1715821834819" duration="266000" />
+      <workItem from="1715856957053" duration="617000" />
+      <workItem from="1718871832543" duration="2098000" />
+      <workItem from="1719054361948" duration="6321000" />
+      <workItem from="1720506872120" duration="4264000" />
+      <workItem from="1720664753918" duration="1391000" />
+      <workItem from="1723363645085" duration="5431000" />
+      <workItem from="1736665605944" duration="288000" />
+      <workItem from="1739274008463" duration="357000" />
+      <workItem from="1739274599724" duration="1525000" />
+      <workItem from="1739276398581" duration="460000" />
+      <workItem from="1739281802573" duration="3012000" />
+      <workItem from="1739343390558" duration="3861000" />
+      <workItem from="1739368634538" duration="5112000" />
+      <workItem from="1739415359164" duration="13856000" />
+      <workItem from="1739456764854" duration="1602000" />
+      <workItem from="1739502833739" duration="258000" />
+      <workItem from="1739519705998" duration="762000" />
+      <workItem from="1739930824538" duration="2727000" />
+      <workItem from="1740039759248" duration="1828000" />
+      <workItem from="1764663263092" duration="6430000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/community/project/system/music/controller/MusicShowController.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/community/project/system/music/controller/MusicShowController.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/community/project/system/notice/service/INoticeService.java</url>
+          <line>60</line>
+          <properties class="com.community.project.system.notice.service.INoticeService" method="selectDataScaleTypeByCLassNameAll">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

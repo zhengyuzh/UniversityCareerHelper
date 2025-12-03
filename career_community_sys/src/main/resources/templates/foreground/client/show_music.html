@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<!-- 载入文章头部页面，位置在/client文件夹下的header模板页面，模板名称th:fragment为header -->
+<!--<title>经验分享</title>-->
+<div th:replace="foreground/client/header::header('活跃用户',null)"></div>
+<style>
+    a:hover {
+        text-decoration: none;
+    }
+</style>
+<style>
+    #back-top {
+        position: fixed;
+        bottom: 300px;
+        right: 118px;
+        z-index: 99;
+    }
+
+    #back-top span {
+        width: 50px;
+        height: 64px;
+        display: block;
+    }
+
+    #back-top a {
+        outline: none
+    }
+
+    #to-bottom {
+        position: fixed;
+
+        bottom: 200px;
+        right: 118px;
+        z-index: 99;
+    }
+
+    #to-bottom span {
+        width: 50px;
+        height: 64px;
+        display: block;
+    }
+
+    #to-bottom a {
+        outline: none
+    }
+
+    #to-addPosts {
+        position: fixed;
+        bottom: 400px;
+        right: 118px;
+        z-index: 99;
+    }
+
+    #to-addPosts span {
+        width: 50px;
+        height: 64px;
+        display: block;
+    }
+
+    #to-addPosts a {
+        outline: none
+    }
+</style>
+<body style="background-color: #e7f5fe">
+<a name="top"></a>
+<div class="am-g am-g-fixed blog-fixed index-page" style="padding-top:100px;color: #5f5f5f;background-color: #ffffff">
+    <div class="am-g-fixed" style="max-width: 1280px">
+        <div style="margin: 0 auto;background-color: #ffffff;width: 1240px;height: 100px">
+
+            <!--            <img th:src="@{/foreground/assets/img/poster7.jpg}" width="1200px" height="250px">-->
+        </div>
+        <div style="margin-top: 20px">
+            <a style="font-size: 18px;color: #5f5f5f" th:href="@{/system/user/toIndex}">首页&nbsp;></a>
+            <a style="font-size: 18px;color: #5f5f5f">&nbsp;活跃用户</a>
+        </div>
+        <hr/>
+    </div>
+    <div class="am-u-md-8 am-u-sm-12">
+        <!-- 文章遍历并分页展示 -->
+        <div th:each="userInfo: ${userPageInfo.list}">
+            <article class="am-g blog-entry-article">
+                <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
+                    <img width="20%" class="am-u-sm-12 img-rounded" style="border-radius:6%;max-height: 203px"
+                         th:src="${userInfo.avatar}"/>
+                </div>
+                <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+                    <div style="margin: 10px 20px;">
+                        <!-- 账号 -->
+                        <span class="blog-color" style="font-size: 15px;color: #5f5f5f"><a>账号：</a></span>
+                        <span style="font-size: 15px;" th:text="${userInfo.loginName}"></span>
+                    </div>
+
+                    <div style="margin: 10px 20px;">
+                        <!-- 电话 -->
+                        <span class="blog-color" style="font-size: 15px;color: #5f5f5f"><a>电话：</a></span>
+                        <span style="font-size: 15px;" th:text="${userInfo.phonenumber}"></span>
+                    </div>
+
+                    <div style="margin: 10px 20px;">
+                        <!-- 邮箱 -->
+                        <span class="blog-color" style="font-size: 15px;color: #5f5f5f"><a>邮箱：</a></span>
+                        <span style="font-size: 15px;" th:text=" ${userInfo.email}"></span>
+
+                    </div>
+
+
+                    <div style="margin: 10px 20px;">
+                        <!-- 粉丝 -->
+                        <span class="blog-color" style="font-size: 15px;color: #5f5f5f"><a>粉丝：</a></span>
+                        <span style="font-size: 15px;" th:text="${'100+'}"></span>
+                    </div>
+
+                    <div style="margin: 10px 20px;">
+                        <!-- 发帖个数 -->
+                        <span class="blog-color" style="font-size: 15px;color: #5f5f5f"><a>发帖个数：</a></span>
+                        <span style="font-size: 15px;" th:text="'15'">&nbsp&nbsp;</span>
+
+                    </div>
+
+                    <div style="margin: 10px 20px;">
+                        <!-- 阅读量 -->
+                        <span class="blog-color" style="font-size: 15px;color: #5f5f5f"><a>阅读量：</a></span>
+                        <span style="font-size: 15px;" th:text="'5W+'"></span>
+                        <!-- 点赞量 -->
+                        <span class="blog-color"
+                              style="font-size: 15px;margin-left: 10px;color: #5f5f5f"><a>点赞量：</a></span>
+                        <span style="font-size: 15px;" th:text="'5000+'">&nbsp&nbsp;</span>
+
+                        <!-- 收藏量 -->
+                        <span class="blog-color"
+                              style="font-size: 15px;margin-left: 10px;color: #5f5f5f"><a>收藏量：</a></span>
+                        <span style="font-size: 15px;" th:text="'1000+'"></span>
+                    </div>
+
+
+                </div>
+            </article>
+        </div>
+        <!-- 分页信息 -->
+        <div class="am-pagination">
+            <div th:replace="/foreground/comm/paging::pageNav(${userPageInfo},'上一页','下一页','pageMusic')"/>
+        </div>
+    </div>
+
+
+    <!-- 求职专区 -->
+    <div class="am-u-md-4 am-u-sm-12 blog-sidebar" style="width: 372px">
+        <div class="blog-sidebar-widget blog-bor">
+            <h2 class="blog-text-center blog-title"><span>求职专区</span></h2>
+            <div style="text-align: left">
+                <th:block th:each="notice :${noticeList}">
+                    <a style="font-size: 15px;" th:href="@{'/system/notice/noticeDetails/'+${notice.noticeId}}"
+                       th:text="${noticeStat.index+1}+'.'+${commons.introAll(notice.noticeTitle,16)}">
+                    </a>
+                    <span style="font-size: 12px;float: right "
+                          th:text="${commons.dateFormat(notice.createTime)}"></span>
+                    <hr style="margin-top: 0.6rem;margin-bottom: 0.4rem"/>
+                </th:block>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<p id="back-top">
+    <a href="#top">
+        <img class="fa-eject" style="width: 50px;
+            height: 64px;" th:src="@{/foreground/assets/img/o_rocket.png}">
+    </a>
+</p>
+<p id="to-bottom">
+    <a href="#bottom">
+        <img class="am-icon-comment-o" style="width: 50px;
+            height: 64px;" th:src="@{/foreground/assets/img/bottom.png}">
+    </a>
+</p>
+
+</body>
+<a name="bottom"></a>
+<!-- 载入文章尾部页面，位置在/foreground/client文件夹下的footer模板页面，模板名称th:fragment为footer -->
+<div th:replace="/foreground/client/footer::footer"></div>
+</html>
