@@ -1,6 +1,7 @@
 # 系统使用说明
 - 该系统是在若以框架的基础上进行的开发，前端使用的是Thymeleaf + BootStrap进行开发
 - 视频效果演示地址：<a href ="https://b23.tv/UmKIxMY" >B站视频传送门</a>
+- 数据库地址：<a href ="https://mbd.pub/o/bread/YZWZmJhqZQ==" >数据库获取</a> 
 - 本篇文章的结尾有部署教程说明和登录账号(不同角色用户)
 ## 环境配置说明
 - JDK 1.8
